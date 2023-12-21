@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Project } from "@/app/sharedTypes";
 import SafariLogo from "@/app/components/SafariLogo";
 
-const Container = styled.div`
+const RootContainer = styled.div`
   position: relative;
   margin: 10vh 0;
   width: 697px;
@@ -25,7 +25,7 @@ const Container = styled.div`
   }
 `;
 
-const Screen = styled.div`
+const ScreenContainer = styled.div`
   position: absolute;
   top: 5%;
   left: 12%;
@@ -51,11 +51,11 @@ const Screen = styled.div`
 `;
 
 interface BrowserProps {
-  isHidden: boolean;
+  $isHidden: boolean;
 }
 
-const Browser = styled.div<BrowserProps>`
-  display: ${(props) => props.isHidden && "none"};
+const BrowserContainer = styled.div<BrowserProps>`
+  display: ${(props) => props.$isHidden && "none"};
   position: relative;
   top: 10%;
   margin: 0 auto;
@@ -104,18 +104,18 @@ export const Laptop = ({ projects, curProject, setCurProject }: Props) => {
   }, []);
 
   return (
-    <Container>
-      <Screen>
-        <Browser isHidden={browserHidden}>
+    <RootContainer>
+      <ScreenContainer>
+        <BrowserContainer $isHidden={browserHidden}>
           <BrowserHeader alt="browser header" src="/BrowserHeader.jpg" />
           <BrowserContent>
             <Video key={videoSrc} autoPlay muted playsInline loop>
               <source src={videoSrc} type="video/mp4" />
             </Video>
           </BrowserContent>
-        </Browser>
+        </BrowserContainer>
         <SafariLogo />
-      </Screen>
-    </Container>
+      </ScreenContainer>
+    </RootContainer>
   );
 };

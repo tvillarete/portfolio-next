@@ -1,16 +1,15 @@
 import { Project } from "@/app/sharedTypes";
 import React from "react";
 import styled, { css } from "styled-components";
+import Link from "next/link";
 
-interface ContainerProps {
-  selected: boolean;
-}
-
-const LinkContainer = styled.a`
+const VisitContainer = styled.div`
   display: none;
 `;
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.div<{
+  selected: boolean;
+}>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,12 +19,12 @@ const Container = styled.div<ContainerProps>`
   cursor: pointer;
   transition: background 0.3s;
 
-  ${(props) =>
-    props.selected &&
+  ${({ selected }) =>
+    selected &&
     css`
       border-left: 3px solid #008eff;
 
-      ${LinkContainer} {
+      ${VisitContainer} {
         display: flex;
       }
     `};
@@ -45,14 +44,12 @@ const Label = styled.h3`
   font-weight: 500;
 `;
 
-const Link = styled.h3`
+const VisitText = styled.p`
   margin: 0 4px;
   font-size: 16px;
   font-weight: 300;
   transition: all 0.3s;
-  text-decoration: none;
   color: #008eff;
-  cursor: pointer;
 
   @media (prefers-color-scheme: dark) {
     :hover {
@@ -61,7 +58,10 @@ const Link = styled.h3`
   }
 `;
 
-const Icon = styled.img`
+const ExternalLinkIcon = styled.img.attrs({
+  alt: "external link",
+  src: "/external-link.svg",
+})`
   max-width: 16px;
 `;
 
@@ -75,15 +75,16 @@ export const ListItem = ({ project, selected, onClick }: Props) => {
   return (
     <Container selected={selected} onClick={onClick}>
       <Label>{project.name}</Label>
-      <LinkContainer
+      <Link
+        href={project.url}
         rel="noopener"
         style={{ textDecoration: "none" }}
-        href={project.url}
-        target="_blank"
       >
-        <Link>Visit</Link>
-        <Icon alt="external link" src="/external-link.svg" />
-      </LinkContainer>
+        <VisitContainer>
+          <VisitText>Visit</VisitText>
+          <ExternalLinkIcon />
+        </VisitContainer>
+      </Link>
     </Container>
   );
 };

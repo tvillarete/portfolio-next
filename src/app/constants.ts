@@ -8,7 +8,7 @@ export const projects: Project[] = [
   },
   {
     name: "Apple Music.js",
-    url: "http://tannerv.com/music",
+    url: "/music",
     videoSrc: "/AppleMusicJS.mp4",
   },
   {
