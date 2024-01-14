@@ -3,7 +3,7 @@ import { Project } from "@/app/sharedTypes";
 export const projects: Project[] = [
   {
     name: "iPod Classic.js",
-    url: "http://tannerv.com/ipod",
+    url: "/ipod",
     videoSrc: "/iPod.mp4",
   },
   {

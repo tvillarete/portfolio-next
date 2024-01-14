@@ -14,6 +14,14 @@ const nextConfig = {
         source: "/music/:path*",
         destination: "https://apple-music-next.vercel.app/music/:path*",
       },
+      {
+        source: "/ipod",
+        destination: "https://ipod-classic-js.vercel.app/ipod",
+      },
+      {
+        source: "/ipod/:path*",
+        destination: "https://ipod-classic-js.vercel.app/ipod/:path*",
+      },
     ];
   },
 };
