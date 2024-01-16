@@ -75,16 +75,18 @@ export const ListItem = ({ project, selected, onClick }: Props) => {
   return (
     <Container selected={selected} onClick={onClick}>
       <Label>{project.name}</Label>
-      <Link
-        href={project.url}
-        rel="noopener"
-        style={{ textDecoration: "none" }}
-      >
-        <VisitContainer>
-          <VisitText>Visit</VisitText>
-          <ExternalLinkIcon />
-        </VisitContainer>
-      </Link>
+      {project.url ? (
+        <Link
+          href={project.url}
+          rel="noopener"
+          style={{ textDecoration: "none" }}
+        >
+          <VisitContainer>
+            <VisitText>Visit</VisitText>
+            <ExternalLinkIcon />
+          </VisitContainer>
+        </Link>
+      ) : null}
     </Container>
   );
 };

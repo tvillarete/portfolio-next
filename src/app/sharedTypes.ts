@@ -1,5 +1,5 @@
 export interface Project {
   name: string;
-  url: string;
+  url?: string;
   videoSrc: string;
 }

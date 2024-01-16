@@ -2,7 +2,7 @@ import { Project } from "@/app/sharedTypes";
 
 export const projects: Project[] = [
   {
-    name: "iPod Classic.js",
+    name: "iPod.js",
     url: "/ipod",
     videoSrc: "/iPod.mp4",
   },
@@ -13,12 +13,10 @@ export const projects: Project[] = [
   },
   {
     name: "Playce",
-    url: "http://tannerv.com/playce",
     videoSrc: "/Playce.mp4",
   },
   {
     name: "Sprinter",
-    url: "http://tannerv.com/Sprinter",
     videoSrc: "/Sprinter.mp4",
   },
   {
